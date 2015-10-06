@@ -34,6 +34,8 @@ $replacements = array(
   '__RANDOM_HASH_SALT__' => generateRandomString(32),
 );
 
+$renames = array();
+
 foreach ($iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($base_path, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST) as $item) {
   if (!$item->isDir()) {
     $old_contents = file_get_contents($base_path . $iterator->getSubPathName());
@@ -48,13 +50,17 @@ foreach ($iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryItera
 
   if ($contains_machine_name !== FALSE) {
     $new_name = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $base_path . $iterator->getSubPathName());
-    rename($base_path . $iterator->getSubPathName(), $new_name);
+    $renames[] = array('source' => $base_path . $iterator->getSubPathName(), 'target' => $new_name);
     if ($item->isDir()) {
       print 'Renamed Dir: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
     } else {
       print 'Renamed File: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
     }
   }
+}
+
+foreach ($renames as $rename) {
+  rename($rename['source'], $rename['target']);
 }
 
 function generateRandomString($length = 10) {
