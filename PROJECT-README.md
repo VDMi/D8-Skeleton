@@ -1,11 +1,4 @@
-# Composer template for Drupal projects
-
-This project template should provide a kickstart for managing your site
-dependencies with [Composer](https://getcomposer.org/).
-
-If you want to know how to use it as replacement for
-[Drush Make](https://github.com/drush-ops/drush/blob/master/docs/make.md) visit
-the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
+# Drupal Project __PROJECT_HUMAN_NAME__
 
 ## Usage
 
@@ -14,10 +7,11 @@ First you need to [install composer](https://getcomposer.org/doc/00-intro.md#ins
 > Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
 You might need to replace `composer` with `php composer.phar` (or similar) for your setup.
 
-After that you can create the project:
+After that you can clone the project.
+When the project is cloned, enter the directory and execute:
 
 ```
-composer create-project --repository-url="http://composer.development.vdmi.nl/packages.json" VDMi-Composer/Skeleton --stability dev --no-interaction destination
+compoter install
 ```
 
 With `composer require ...` you can download new dependencies to your installation.

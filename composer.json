@@ -32,8 +32,13 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": "scripts/composer/post-install.sh",
-        "post-create-project-cmd": "php scripts/composer/post-create-project.php"
+        "post-root-package-install": "DrupalSkeletonInstaller::install"
     },
+    "autoload": {
+      "psr-0": {
+        "": "./scripts/composer/"
+      }
+    }
     "extra": {
         "installer-paths": {
             "web/core": ["type:drupal-core"],
