@@ -28,16 +28,39 @@ while(trim($confirm) != "Y") {
 
 $base_path = './';
 
+$replacements = array(
+  '__PROJECT_MACHINE_NAME__' => $machine_name,
+  '__PROJECT_HUMAN_NAME__' => $human_name,
+  '__RANDOM_HASH_SALT__' => generateRandomString(32),
+);
+
 foreach ($iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($base_path, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST) as $item) {
+  if (!$item->isDir()) {
+    $contents = file_get_contents($base_path . $iterator->getSubPathName());
+    $contents = str_replace(array_keys($replacements), array_values($replacements), $contents);
+    file_put_contents($base_path . $iterator->getSubPathName(), $contents);
+  }
+
   $contains_machine_name = strpos($iterator->getFilename(), '__PROJECT_MACHINE_NAME__');
 
   if ($contains_machine_name !== FALSE) {
     $new_name = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $base_path . $iterator->getSubPathName());
-    //rename($base_path . $iterator->getSubPathName(), $new_name);
+    rename($base_path . $iterator->getSubPathName(), $new_name);
     if ($item->isDir()) {
       print 'Renamed Dir: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
     } else {
       print 'Renamed File: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
+      $contents = file_get_contents($original_filepath);
     }
   }
+}
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
