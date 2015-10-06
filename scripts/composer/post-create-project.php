@@ -34,7 +34,7 @@ $replacements = array(
   '__RANDOM_HASH_SALT__' => generateRandomString(64),
 );
 
-function updateDir($main, $replacements){
+function updateDir($main, $replacements, $machine_name){
   $dirHandle = opendir($main);
   while($file = readdir($dirHandle)) {
     $curpath = $main . '/' . $file;
@@ -43,11 +43,12 @@ function updateDir($main, $replacements){
     if ($contains_machine_name !== FALSE) {
       $new_path = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $curpath);
       rename($curpath, $new_path);
+      print 'Renamed ' . $curpath . ' to ' . $new_path;
       $curpath = $new_path;
     }
 
     if(is_dir($curpath) && $file != '.' && $file != '..'){
-      updateDir($curpath, $replacements);
+      updateDir($curpath, $replacements, $machine_name);
     }
     else{
       $old_contents = file_get_contents($curpath);
@@ -60,7 +61,7 @@ function updateDir($main, $replacements){
   }
 }
 
-updateDir($base_path, $replacements);
+updateDir($base_path, $replacements, $machine_name);
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
