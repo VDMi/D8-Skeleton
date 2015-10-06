@@ -37,8 +37,8 @@ dependencies:
   - views_ui
 
 themes:
-  - bartik
   - seven
+  - classy
   - __PROJECT_MACHINE_NAME___theme
 
 env_dependencies:

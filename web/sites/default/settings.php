@@ -239,12 +239,12 @@ $databases = array();
  * @code
  *   $config_directories = array(
  *     CONFIG_ACTIVE_DIRECTORY => '/some/directory/outside/webroot',
- *     CONFIG_STAGING_DIRECTORY => '/another/directory/outside/webroot',
+ *     CONFIG_SYNC_DIRECTORY => '/another/directory/outside/webroot',
  *   );
  * @endcode
  */
 $config_directories = array(
-  CONFIG_STAGING_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/staging',
+  CONFIG_SYNC_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/sync',
   CONFIG_ACTIVE_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/active',
 );
 
