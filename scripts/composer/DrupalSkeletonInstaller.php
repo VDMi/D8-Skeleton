@@ -67,7 +67,7 @@ class DrupalSkeletonInstaller {
     print ' - cd web' . PHP_EOL;
     print ' - nano sites/default/settings.local.php (enter the database details)' . PHP_EOL;
     print ' - ./../vendor/bin/drush site-install ' . $machine_name . ' --yes' . PHP_EOL;
-    print ' - ./../vendor/bin/drush config-import --yes' . PHP_EOL;
+    print ' - ./../vendor/bin/drush config-import staging --yes' . PHP_EOL;
     print PHP_EOL;
     print 'Now your site is ready!' . PHP_EOL;
     print PHP_EOL;

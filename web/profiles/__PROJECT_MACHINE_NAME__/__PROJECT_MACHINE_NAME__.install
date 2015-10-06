@@ -20,7 +20,7 @@ function __PROJECT_MACHINE_NAME___install() {
 
   // We need to parse all uuids from deploy dir and override local uuids.
   // If we don't do this, we run into problems with initial drush config-import.
-  $dir = \Drupal::root() . '/' . config_get_config_directory('sync') . '/';
+  $dir = \Drupal::root() . '/' . config_get_config_directory(CONFIG_STAGING_DIRECTORY) . '/';
   $files = scandir($dir);
 
   $configs = \Drupal::configFactory()->listAll();

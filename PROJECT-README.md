@@ -21,7 +21,7 @@ Then install the website:
 ```
 cd web
 ./../vendor/bin/drush site-install __PROJECT_MACHINE_NAME__ --yes
-./../vendor/bin/drush config-import --yes
+./../vendor/bin/drush config-import staging --yes
 ```
 
 Now your site is ready!
