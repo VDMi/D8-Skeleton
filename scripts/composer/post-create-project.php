@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 $human_name = '';
 while(empty(trim($human_name))) {
