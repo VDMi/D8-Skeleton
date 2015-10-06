@@ -11,8 +11,20 @@ After that you can clone the project.
 When the project is cloned, enter the directory and execute:
 
 ```
-compoter install
+composer install
 ```
+
+Now you have all dependencies!
+Now create the database and edit the database settings in ``` ```.
+Then install the website:
+
+```
+cd web
+./../vendor/bin/drush site-install __PROJECT_MACHINE_NAME__ --yes
+./../vendor/bin/drush config-import --yes
+```
+
+Now your site is ready!
 
 With `composer require ...` you can download new dependencies to your installation.
 
