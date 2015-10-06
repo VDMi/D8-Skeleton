@@ -26,6 +26,14 @@ cd web
 
 Now your site is ready!
 
+You can execute Drupal Console with:
+
+```
+./../vendor/bin/console
+```
+
+Drupal Console contains many useful tools to generate Drupal 8 elements such as routers and blocks.
+
 With `composer require ...` you can download new dependencies to your installation.
 
 ```
