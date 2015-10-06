@@ -26,42 +26,41 @@ while(trim($confirm) != "Y") {
   $confirm = readline('Type Y to continue: ');
 }
 
-$base_path = './web/';
+$base_path = './web';
 
 $replacements = array(
   '__PROJECT_MACHINE_NAME__' => $machine_name,
   '__PROJECT_HUMAN_NAME__' => $human_name,
-  '__RANDOM_HASH_SALT__' => generateRandomString(32),
+  '__RANDOM_HASH_SALT__' => generateRandomString(64),
 );
 
-$renames = array();
+function updateDir($main, $replacements){
+  $dirHandle = opendir($main);
+  while($file = readdir($dirHandle)) {
+    $curpath = $main . '/' . $file;
 
-foreach ($iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($base_path, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST) as $item) {
-  if (!$item->isDir()) {
-    $old_contents = file_get_contents($base_path . $iterator->getSubPathName());
-    $new_contents = str_replace(array_keys($replacements), array_values($replacements), $old_contents);
-    if ($new_contents != $old_contents) {
-      file_put_contents($base_path . $iterator->getSubPathName(), $new_contents);
-      print 'Updated File: ' . $base_path . $iterator->getSubPathName() . PHP_EOL;
+    $contains_machine_name = strpos($main . '/' . $file, '__PROJECT_MACHINE_NAME__');
+    if ($contains_machine_name !== FALSE) {
+      $new_path = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $curpath);
+      rename($curpath, $new_path);
+      $curpath = $new_path;
     }
-  }
 
-  $contains_machine_name = strpos($iterator->getFilename(), '__PROJECT_MACHINE_NAME__');
-
-  if ($contains_machine_name !== FALSE) {
-    $new_name = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $base_path . $iterator->getSubPathName());
-    $renames[] = array('source' => $base_path . $iterator->getSubPathName(), 'target' => $new_name);
-    if ($item->isDir()) {
-      print 'Renamed Dir: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
-    } else {
-      print 'Renamed File: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
+    if(is_dir($curpath) && $file != '.' && $file != '..'){
+      updateDir($curpath, $replacements);
+    }
+    else{
+      $old_contents = file_get_contents($curpath);
+      $new_contents = str_replace(array_keys($replacements), array_values($replacements), $old_contents);
+      if ($new_contents != $old_contents) {
+        file_put_contents($curpath, $new_contents);
+        print 'Updated File: ' . $curpath . PHP_EOL;
+      }
     }
   }
 }
 
-foreach ($renames as $rename) {
-  rename($rename['source'], $rename['target']);
-}
+updateDir($base_path, $replacements);
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
