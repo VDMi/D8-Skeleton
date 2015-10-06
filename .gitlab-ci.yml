@@ -1,0 +1,32 @@
+variables:
+  SIMPLETEST_DB: "mysql://root:root@127.0.0.1/{project-name}"
+
+stages:
+  - build
+  - test
+
+before_script:
+  - composer --version
+
+Composer:
+  stage: build
+  tags:
+    - drupal
+  script:
+    - composer --verbose install
+
+Install-ConfigImport-PHPUnit:
+  stage: test
+  tags:
+    - drupal
+  script:
+    - composer --verbose install
+    - sh scripts/tests/post-install.sh
+    - cd web
+    #- ./../vendor/bin/drush sql-drop --verbose --yes --db-url=$SIMPLETEST_DB
+    #- ./../vendor/bin/drush site-install narrowscape --verbose --yes --db-url=$SIMPLETEST_DB
+    #- ./../vendor/bin/drush config-import --verbose --yes --db-url=$SIMPLETEST_DB
+    #- ./../vendor/bin/phpunit -c core --exclude-group Composer
+    - ./../vendor/bin/drush
+    - ./../vendor/bin/console
+
