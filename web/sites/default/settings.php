@@ -245,6 +245,7 @@ $databases = array();
  */
 $config_directories = array(
   CONFIG_SYNC_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/sync',
+  CONFIG_STAGING_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/sync',
   CONFIG_ACTIVE_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/active',
 );
 
