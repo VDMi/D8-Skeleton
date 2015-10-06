@@ -31,7 +31,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-install-cmd": "scripts/composer/post-install.sh"
+        "post-install-cmd": "scripts/composer/post-install.sh",
+        "post-root-package-install": "scripts/composer/post-create-project.sh"
     },
     "extra": {
         "installer-paths": {

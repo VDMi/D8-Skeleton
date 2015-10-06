@@ -244,8 +244,8 @@ $databases = array();
  * @endcode
  */
 $config_directories = array(
-  CONFIG_STAGING_DIRECTORY => 'profiles/narrowscape/config/staging',
-  CONFIG_ACTIVE_DIRECTORY => 'profiles/narrowscape/config/active',
+  CONFIG_STAGING_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/staging',
+  CONFIG_ACTIVE_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/active',
 );
 
 /**
@@ -268,7 +268,7 @@ $config_directories = array(
  *
  * @see install_select_profile()
  */
-$settings['install_profile'] = 'narrowscape';
+$settings['install_profile'] = '__PROJECT_MACHINE_NAME__';
 
 /**
  * Salt for one-time login links, cancel links, form tokens, etc.
@@ -287,7 +287,7 @@ $settings['install_profile'] = 'narrowscape';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'MW98HXn_GmvUPErhQL2B2-msxN1uvenJmWOqIVzLq_KAyqN7deQk0kN8W6wZTJK2CUV3QLE96A';
+$settings['hash_salt'] = '__RANDOM_HASH_SALT__';
 
 /**
  * Deployment identifier.

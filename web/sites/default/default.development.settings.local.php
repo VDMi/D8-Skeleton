@@ -2,7 +2,7 @@
 
 $databases['default']['default'] = array(
   'driver' => 'mysql',
-  'database' => '{project-name}',
+  'database' => '__PROJECT_MACHINE_NAME__',
   'username' => 'root',
   'password' => 'root',
   'host' => 'localhost',

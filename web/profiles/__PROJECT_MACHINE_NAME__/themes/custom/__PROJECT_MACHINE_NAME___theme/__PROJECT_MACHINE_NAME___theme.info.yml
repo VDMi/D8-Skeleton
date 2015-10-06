@@ -1,0 +1,16 @@
+name: __PROJECT_HUMAN_NAME__ Theme
+type: theme
+description: Theme for __PROJECT_HUMAN_NAME__
+package: Other
+core: 8.x
+libraries:
+  - __PROJECT_MACHINE_NAME___theme/global-styling
+  - __PROJECT_MACHINE_NAME___theme/custom
+base theme: classy
+regions:
+  header: Header
+  featured: Featured
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer
