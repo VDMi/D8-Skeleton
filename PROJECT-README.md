@@ -37,8 +37,7 @@ Drupal Console contains many useful tools to generate Drupal 8 elements such as 
 With `composer require ...` you can download new dependencies to your installation.
 
 ```
-cd some-dir
-composer require drupal/devel:8.*
+composer require drupal/paragraphs:8.*
 ```
 
 ## What does the template do?

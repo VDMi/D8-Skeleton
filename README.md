@@ -23,7 +23,6 @@ composer create-project --repository-url="http://composer.development.vdmi.nl/pa
 With `composer require ...` you can download new dependencies to your installation.
 
 ```
-cd some-dir
 composer require drupal/devel:8.*
 ```
 
