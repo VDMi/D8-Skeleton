@@ -1,0 +1,12 @@
+uuid: ffac9c12-4a7d-4565-a53e-62ca6fcb4e77
+name: __PROJECT_HUMAN_NAME__
+mail: info+__PROJECT_MACHINE_NAME__@vdmi.nl
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
