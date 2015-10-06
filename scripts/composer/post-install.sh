@@ -14,8 +14,18 @@ if [ ! -f web/sites/default/services.yml ]
     chmod 777 web/sites/default/services.yml
 fi
 
+# Prepare the settings file for installation
+if [ ! -f web/sites/default/settings.local.php ]
+  then
+    cp web/sites/default/default.settings.local.php web/sites/default/settings.local.php
+    chmod 777 web/sites/default/settings.local.php
+fi
+
 # Prepare the files directory for installation
 if [ ! -d web/sites/default/files ]
   then
     mkdir -m777 web/sites/default/files
+    mkdir -m777 web/sites/default/files/private
+    mkdir -m777 web/sites/default/files/private/tmp
 fi
+
