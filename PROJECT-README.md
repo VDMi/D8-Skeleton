@@ -15,7 +15,7 @@ composer install
 ```
 
 Now you have all dependencies!
-Now create the database and edit the database settings in ``` ```.
+Now create the database and edit the database settings in ```./web/sites/default/settings.local.php```.
 Then install the website:
 
 ```
