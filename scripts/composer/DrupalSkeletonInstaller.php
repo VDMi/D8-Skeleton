@@ -45,7 +45,7 @@ class DrupalSkeletonInstaller {
     DrupalSkeletonInstaller::updateDir($base_path, $replacements, $machine_name);
   }
 
-  private function updateDir($main, $replacements, $machine_name){
+  public static function updateDir($main, $replacements, $machine_name){
     $dirHandle = opendir($main);
     while($file = readdir($dirHandle)) {
       $curpath = $main . '/' . $file;
@@ -72,7 +72,7 @@ class DrupalSkeletonInstaller {
     }
   }
 
-  private function generateRandomString($length = 10) {
+  public static function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
