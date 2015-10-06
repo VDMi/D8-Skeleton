@@ -43,6 +43,35 @@ class DrupalSkeletonInstaller {
     unlink('README.md');
     rename('PROJECT-README.md', 'README.md');
     DrupalSkeletonInstaller::updateDir($base_path, $replacements, $machine_name);
+
+    print PHP_EOL;
+    print PHP_EOL;
+    print 'Congratulations!' . PHP_EOL;
+    print 'You now initialized a new project from the Skeleton!' . PHP_EOL;
+    print PHP_EOL;
+    print 'To start developing:' . PHP_EOL;
+    print PHP_EOL;
+    print 'First commit your project:' . PHP_EOL;
+    print ' - git init' . PHP_EOL;
+    print ' - git remote add <repository-url>' . PHP_EOL;
+    print ' - git add .' . PHP_EOL;
+    print ' - git commit -m "Initial Commit"' . PHP_EOL;
+    print ' - git branch development' . PHP_EOL;
+    print ' - git branch staging' . PHP_EOL;
+    print ' - git push origin master' . PHP_EOL;
+    print ' - git push origin staging' . PHP_EOL;
+    print ' - git push origin development' . PHP_EOL;
+    print PHP_EOL;
+    print 'Create a new database for this Drupal site.' . PHP_EOL;
+    print 'Install the Drupal environment:' . PHP_EOL;
+    print ' - cd web' . PHP_EOL;
+    print ' - nano sites/default/settings.local.php (enter the database details)' . PHP_EOL;
+    print ' - ./../vendor/bin/drush site-install __PROJECT_MACHINE_NAME__ --yes' . PHP_EOL;
+    print ' - ./../vendor/bin/drush config-import --yes' . PHP_EOL;
+    print PHP_EOL;
+    print 'Now your site is ready!' . PHP_EOL;
+    print PHP_EOL;
+    print PHP_EOL;
   }
 
   public static function updateDir($main, $replacements, $machine_name){
