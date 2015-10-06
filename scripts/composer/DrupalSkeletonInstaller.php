@@ -58,9 +58,9 @@ class DrupalSkeletonInstaller {
     print ' - git commit -m "Initial Commit"' . PHP_EOL;
     print ' - git branch development' . PHP_EOL;
     print ' - git branch staging' . PHP_EOL;
-    print ' - git push origin master' . PHP_EOL;
-    print ' - git push origin staging' . PHP_EOL;
     print ' - git push origin development' . PHP_EOL;
+    print ' - git push origin staging' . PHP_EOL;
+    print ' - git push origin master' . PHP_EOL;
     print PHP_EOL;
     print 'Create a new database for this Drupal site.' . PHP_EOL;
     print 'Install the Drupal environment:' . PHP_EOL;
