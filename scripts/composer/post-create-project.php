@@ -43,7 +43,7 @@ function updateDir($main, $replacements, $machine_name){
     if ($contains_machine_name !== FALSE) {
       $new_path = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $curpath);
       rename($curpath, $new_path);
-      print 'Renamed ' . $curpath . ' to ' . $new_path;
+      print 'Renamed ' . $curpath . ' to ' . $new_path . PHP_EOL;
       $curpath = $new_path;
     }
 
