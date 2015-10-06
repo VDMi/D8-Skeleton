@@ -53,7 +53,7 @@ class DrupalSkeletonInstaller {
     print PHP_EOL;
     print 'First commit your project:' . PHP_EOL;
     print ' - git init' . PHP_EOL;
-    print ' - git remote add <repository-url>' . PHP_EOL;
+    print ' - git remote add origin <repository-url>' . PHP_EOL;
     print ' - git add .' . PHP_EOL;
     print ' - git commit -m "Initial Commit"' . PHP_EOL;
     print ' - git branch development' . PHP_EOL;
@@ -66,7 +66,7 @@ class DrupalSkeletonInstaller {
     print 'Install the Drupal environment:' . PHP_EOL;
     print ' - cd web' . PHP_EOL;
     print ' - nano sites/default/settings.local.php (enter the database details)' . PHP_EOL;
-    print ' - ./../vendor/bin/drush site-install __PROJECT_MACHINE_NAME__ --yes' . PHP_EOL;
+    print ' - ./../vendor/bin/drush site-install ' . $machine_name . ' --yes' . PHP_EOL;
     print ' - ./../vendor/bin/drush config-import --yes' . PHP_EOL;
     print PHP_EOL;
     print 'Now your site is ready!' . PHP_EOL;
