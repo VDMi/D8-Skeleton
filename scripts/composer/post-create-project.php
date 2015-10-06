@@ -53,7 +53,6 @@ foreach ($iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryItera
       print 'Renamed Dir: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
     } else {
       print 'Renamed File: ' . $base_path . $iterator->getSubPathName() . ' => ' . $new_name . PHP_EOL;
-      $contents = file_get_contents($original_filepath);
     }
   }
 }
