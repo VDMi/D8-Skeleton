@@ -79,6 +79,11 @@ class DrupalSkeletonInstaller {
     while($file = readdir($dirHandle)) {
       $curpath = $main . '/' . $file;
 
+      // Skip .git and vendor.
+      if ($file == '.git' || $curpath == './vendor') {
+        continue;
+      }
+
       $contains_machine_name = strpos($main . '/' . $file, '__PROJECT_MACHINE_NAME__');
       if ($contains_machine_name !== FALSE) {
         $new_path = str_replace('__PROJECT_MACHINE_NAME__', $machine_name, $curpath);
@@ -87,7 +92,7 @@ class DrupalSkeletonInstaller {
         $curpath = $new_path;
       }
 
-      if(is_dir($curpath) && $file != '.' && $file != '..' && $file != '.git'){
+      if(is_dir($curpath) && $file != '.' && $file != '..'){
         DrupalSkeletonInstaller::updateDir($curpath, $replacements, $machine_name);
       }
       else{

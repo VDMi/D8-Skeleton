@@ -32,7 +32,7 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": "scripts/composer/post-install.sh",
-        "post-root-package-install": "DrupalSkeletonInstaller::install"
+        "post-create-project-cmd": "DrupalSkeletonInstaller::install"
     },
     "autoload": {
       "psr-0": {
