@@ -38,7 +38,7 @@
       "psr-0": {
         "": "./scripts/composer/"
       }
-    }
+    },
     "extra": {
         "installer-paths": {
             "web/core": ["type:drupal-core"],
