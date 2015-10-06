@@ -26,7 +26,7 @@ while(trim($confirm) != "Y") {
   $confirm = readline('Type Y to continue: ');
 }
 
-$base_path = './';
+$base_path = './web/';
 
 $replacements = array(
   '__PROJECT_MACHINE_NAME__' => $machine_name,
@@ -36,9 +36,12 @@ $replacements = array(
 
 foreach ($iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($base_path, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST) as $item) {
   if (!$item->isDir()) {
-    $contents = file_get_contents($base_path . $iterator->getSubPathName());
-    $contents = str_replace(array_keys($replacements), array_values($replacements), $contents);
-    file_put_contents($base_path . $iterator->getSubPathName(), $contents);
+    $old_contents = file_get_contents($base_path . $iterator->getSubPathName());
+    $new_contents = str_replace(array_keys($replacements), array_values($replacements), $old_contents);
+    if ($new_contents != $old_contents) {
+      file_put_contents($base_path . $iterator->getSubPathName(), $new_contents);
+      print 'Updated File: ' . $base_path . $iterator->getSubPathName() . PHP_EOL;
+    }
   }
 
   $contains_machine_name = strpos($iterator->getFilename(), '__PROJECT_MACHINE_NAME__');
