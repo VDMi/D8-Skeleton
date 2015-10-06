@@ -5,9 +5,9 @@ dependencies:
   module:
     - system
   theme:
-    - woepwoep_theme
+    - __PROJECT_MACHINE_NAME___theme
 id: mainpagecontent
-theme: woepwoep_theme
+theme: __PROJECT_MACHINE_NAME___theme
 region: content
 weight: 1
 provider: null

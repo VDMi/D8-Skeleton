@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - woepwoep_theme
+    - __PROJECT_MACHINE_NAME___theme
 id: tabs
-theme: woepwoep_theme
+theme: __PROJECT_MACHINE_NAME___theme
 region: header
 weight: -2
 provider: null
