@@ -32,7 +32,7 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": "scripts/composer/post-install.sh",
-        "post-root-package-install": "scripts/composer/post-create-project.sh"
+        "post-root-package-install": "scripts/composer/post-create-project.php"
     },
     "extra": {
         "installer-paths": {
