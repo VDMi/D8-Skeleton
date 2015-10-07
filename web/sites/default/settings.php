@@ -243,6 +243,12 @@ $databases = array();
  *   );
  * @endcode
  */
+
+// Fallback for old Drupal version.
+if(!defined('CONFIG_SYNC_DIRECTORY')){
+  define('CONFIG_SYNC_DIRECTORY', 'sync');
+}
+
 $config_directories = array(
   CONFIG_SYNC_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/sync',
   CONFIG_STAGING_DIRECTORY => 'profiles/__PROJECT_MACHINE_NAME__/config/sync',
