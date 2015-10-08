@@ -250,7 +250,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }
   feed_1:
     id: feed_1
     display_title: Feed
@@ -287,7 +288,8 @@ display:
         - url
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -306,4 +308,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }

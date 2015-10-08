@@ -170,7 +170,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -186,4 +187,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }

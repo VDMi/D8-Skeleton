@@ -356,7 +356,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: 0
+      tags: {  }
   attachment_1:
     id: attachment_1
     display_title: Attachment
@@ -423,7 +424,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: 0
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -449,4 +451,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: 0
+      tags: {  }

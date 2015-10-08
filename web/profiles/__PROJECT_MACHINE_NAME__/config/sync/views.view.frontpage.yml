@@ -245,7 +245,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }
   feed_1:
     display_plugin: feed
     id: feed_1
@@ -279,7 +280,8 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }
   page_1:
     display_options:
       path: node
@@ -294,4 +296,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
+      max-age: -1
+      tags: {  }
