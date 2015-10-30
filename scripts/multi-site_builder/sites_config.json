@@ -1,0 +1,46 @@
+{
+  "sites": {
+    "test1": {
+      "profile": "dr8",
+      "database": "example_1",
+      "username": "boss",
+      "password": "boss",
+      "host": "localhost",
+      "driver": "mysql",
+      "site_name": "example_1",
+      "domains": [
+        "ex1.web.destination.dr8.vdmi",
+        "ex2.web.destination.dr8.vdmi"
+      ]
+    },
+    "test2": {
+      "profile": "dr8",
+      "database": "example_2",
+      "username": "boss",
+      "password": "boss",
+      "host": "localhost",
+      "driver": "mysql",
+      "site_name": "example_2",
+      "domains": [
+        "exa1.web.destination.dr8.vdmi",
+        "exa2.web.destination.dr8.vdmi"
+      ]
+    },
+    "test3": {
+      "profile": "dr8",
+      "database": "example_3",
+      "username": "boss",
+      "password": "boss",
+      "host": "localhost",
+      "driver": "mysql",
+      "site_name": "example_3",
+      "domains": [
+        "exam1.web.destination.dr8.vdmi",
+        "exam2.web.destination.dr8.vdmi"
+      ]
+    }
+  }
+}
+
+
+
