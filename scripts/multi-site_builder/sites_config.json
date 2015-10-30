@@ -9,12 +9,8 @@
       "driver": "mysql",
       "site_name": "__PROJECT_HUMAN_NAME__",
       "domains": [
-        "web.__PROJECT_MACHINE_NAME__.vdmi",
-        "ex2.web.destination.dr8.vdmi"
+        "web.__PROJECT_MACHINE_NAME__.vdmi"
       ]
     }
   }
 }
-
-
-
