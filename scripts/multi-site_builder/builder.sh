@@ -31,7 +31,7 @@ do
     mkdir $BASE_PATH/web/sites/$machine_name/files
 
     mkdir $BASE_PATH/web/sites/$machine_name/cnf
-    cp $BASE_PATH/web/sites_config.json $BASE_PATH/web/sites/$machine_name/cnf/config.json
+    cp $BASE_PATH/scripts/multi-site_builder/sites_config.json $BASE_PATH/web/sites/$machine_name/cnf/config.json
 
     cd $BASE_PATH/web/sites/$machine_name/files/ && chmod -R 777 .
     cd $BASE_PATH/web/sites/$machine_name/
