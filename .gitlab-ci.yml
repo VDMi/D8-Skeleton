@@ -35,5 +35,4 @@ Install-ConfigImport-PHPUnit:
     - ./../vendor/bin/drush sql-create --yes --db-su=root --db-su-pw=root --db-url=$SIMPLETEST_DB
     - ./../vendor/bin/drush site-install narrowscape --verbose --yes --db-url=$SIMPLETEST_DB
     - ./../vendor/bin/drush config-import --verbose --yes --db-url=$SIMPLETEST_DB
-    - ./../vendor/bin/phpunit -c core --exclude-group Composer
 
