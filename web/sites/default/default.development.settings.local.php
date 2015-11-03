@@ -5,7 +5,7 @@ $databases['default']['default'] = array(
   'database' => '__PROJECT_MACHINE_NAME__',
   'username' => 'root',
   'password' => 'root',
-  'host' => 'localhost',
+  'host' => 'mysql',
   'prefix' => '',
 );
 
