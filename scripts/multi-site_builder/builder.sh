@@ -13,6 +13,7 @@ do
     db_pass=`php -f decode.php $i password`
     db_host=`php -f decode.php $i host`
     db_driver=`php -f decode.php $i driver`
+    permissions=`php -f decode.php $i owner`
     site_name=`php -f decode.php $i site_name`
     profile=`php -f decode.php $i profile`
     domains=`php -f decode.php $i domains`
@@ -33,7 +34,7 @@ do
     mkdir $BASE_PATH/web/sites/$machine_name/cnf
     cp $BASE_PATH/scripts/multi-site_builder/sites_config.json $BASE_PATH/web/sites/$machine_name/cnf/config.json
 
-    cd $BASE_PATH/web/sites/$machine_name/files/ && chmod -R 777 .
+    cd $BASE_PATH/web/sites/$machine_name/files/ && sudo chown -R $permissions . && sudo chmod -R 775 .
     cd $BASE_PATH/web/sites/$machine_name/
 
     dbconnect="$db_username:$db_pass"
