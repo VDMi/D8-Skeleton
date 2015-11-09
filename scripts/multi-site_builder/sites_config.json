@@ -7,6 +7,7 @@
       "password": "db_pass",
       "host": "db_host",
       "driver": "mysql",
+      "owner":"owner:group",
       "site_name": "__PROJECT_HUMAN_NAME__",
       "domains": [
         "web.__PROJECT_MACHINE_NAME__.vdmi"
