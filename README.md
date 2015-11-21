@@ -17,7 +17,7 @@ You might need to replace `composer` with `php composer.phar` (or similar) for y
 After that you can create the project:
 
 ```
-composer create-project --repository-url="http://composer.development.vdmi.nl/packages.json" VDMi-Composer/D8-Skeleton --stability dev --no-interaction destination
+composer create-project --repository-url="https://raw.githubusercontent.com/VDMi/D8-Skeleton/8.x/packages.json" VDMi-Composer/D8-Skeleton --stability dev --no-interaction destination
 ```
 
 With `composer require ...` you can download new dependencies to your installation.
