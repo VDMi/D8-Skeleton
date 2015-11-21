@@ -1,0 +1,15 @@
+{
+    "packages": {
+        "VDMi-Composer/D8-Skeleton": {
+            "8.x-dev": {
+                "name": "VDMi-Composer/D8-Skeleton",
+                "version": "8.x-dev",
+                "source": {
+                    "url": "https://github.com/VDMi/D8-Skeleton.git",
+                    "type": "git",
+                    "reference": "8.x"
+                }
+            }
+        }
+    }
+}
