@@ -10,7 +10,6 @@ stages:
 before_script:
   - mkdir -p /cache/drush
   - ln -s /cache/drush ~/.drush
-  - composer config --global github-oauth.github.com f6a5b05b8aaaea0cf253c9eb042d30c2d392d80b
   - composer config --global cache-dir /cache/composer
   - composer --version
   - mysql --version
