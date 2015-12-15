@@ -42,8 +42,13 @@ class DrupalSkeletonInstaller {
       'ffac9c12-4a7d-4565-a53e-62ca6fcb4e77' => DrupalSkeletonInstaller::UUID(),
     );
 
-    unlink('README.md');
-    rename('PROJECT-README.md', 'README.md');
+    if(file_exists('PROJECT-README.md')) {
+      if(file_exists('README.md')) {
+        unlink('README.md');
+      }
+      rename('PROJECT-README.md', 'README.md');
+    }
+
     DrupalSkeletonInstaller::updateDir($base_path, $replacements, $machine_name);
 
     print PHP_EOL;
@@ -82,7 +87,7 @@ class DrupalSkeletonInstaller {
       $curpath = $main . '/' . $file;
 
       // Skip .git and vendor.
-      if ($file == '.git' || $curpath == './vendor') {
+      if ($file == '.git' || $file == 'DrupalSkeletonInstaller.php' || $curpath == './vendor') {
         continue;
       }
 
