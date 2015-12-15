@@ -7,13 +7,13 @@ class DrupalSkeletonInstaller {
   public static function install(Event $event) {
 
     $human_name = '';
-    while(empty(trim($human_name))) {
+    while (empty(trim($human_name))) {
       $human_name = readline('Human Name: ');
     }
     $human_name = trim($human_name);
 
     $machine_readable = strtolower($human_name);
-    $machine_readable = preg_replace('@[^a-z0-9_]+@','_',$machine_readable);
+    $machine_readable = preg_replace('@[^a-z0-9_]+@', '_', $machine_readable);
 
     $machine_name = readline('Machine Name (' . $machine_readable . '): ');
     if (empty(trim($machine_name))) {
@@ -28,7 +28,7 @@ class DrupalSkeletonInstaller {
     print PHP_EOL;
 
     $confirm = '';
-    while(trim($confirm) != "Y") {
+    while (trim($confirm) != "Y") {
       $confirm = readline('Type Y to continue: ');
     }
 
@@ -42,8 +42,13 @@ class DrupalSkeletonInstaller {
       'ffac9c12-4a7d-4565-a53e-62ca6fcb4e77' => DrupalSkeletonInstaller::UUID(),
     );
 
-    unlink('README.md');
-    rename('PROJECT-README.md', 'README.md');
+    if (file_exists('PROJECT-README.md')) {
+      if (file_exists('README.md')) {
+        unlink('README.md');
+      }
+      rename('PROJECT-README.md', 'README.md');
+    }
+
     DrupalSkeletonInstaller::updateDir($base_path, $replacements, $machine_name);
 
     print PHP_EOL;
@@ -76,13 +81,13 @@ class DrupalSkeletonInstaller {
     print PHP_EOL;
   }
 
-  public static function updateDir($main, $replacements, $machine_name){
+  public static function updateDir($main, $replacements, $machine_name) {
     $dirHandle = opendir($main);
-    while($file = readdir($dirHandle)) {
+    while ($file = readdir($dirHandle)) {
       $curpath = $main . '/' . $file;
 
       // Skip .git and vendor.
-      if ($file == '.git' || $curpath == './vendor') {
+      if ($file == '.git' || $file == 'DrupalSkeletonInstaller.php' || $curpath == './vendor') {
         continue;
       }
 
@@ -94,10 +99,10 @@ class DrupalSkeletonInstaller {
         $curpath = $new_path;
       }
 
-      if(is_dir($curpath) && $file != '.' && $file != '..'){
+      if (is_dir($curpath) && $file != '.' && $file != '..') {
         DrupalSkeletonInstaller::updateDir($curpath, $replacements, $machine_name);
       }
-      else{
+      else {
         $old_contents = file_get_contents($curpath);
         $new_contents = str_replace(array_keys($replacements), array_values($replacements), $old_contents);
         if ($new_contents != $old_contents) {
@@ -141,3 +146,4 @@ class DrupalSkeletonInstaller {
     );
   }
 }
+
