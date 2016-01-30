@@ -28,7 +28,7 @@ class DrupalSkeletonInstaller {
     print PHP_EOL;
 
     $confirm = '';
-    while (trim(strtolower($confirm)) != "Y") {
+    while (trim(strtolower($confirm)) != "y") {
       $confirm = readline('Type Y to continue: ');
     }
 
