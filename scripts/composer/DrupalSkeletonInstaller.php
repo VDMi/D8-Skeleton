@@ -28,7 +28,7 @@ class DrupalSkeletonInstaller {
     print PHP_EOL;
 
     $confirm = '';
-    while (trim($confirm) != "Y") {
+    while (trim(strtolower($confirm)) != "Y") {
       $confirm = readline('Type Y to continue: ');
     }
 
@@ -146,4 +146,3 @@ class DrupalSkeletonInstaller {
     );
   }
 }
-
