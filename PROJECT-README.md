@@ -53,7 +53,8 @@ When installing the given `composer.json` some tasks are taken care of:
 * Creates default writable versions of `settings.php` and `services.yml`.
 * Creates `sites/default/files`-directory.
 * Latest version of drush is installed locally for use at `vendor/bin/drush`.
-* Latest version of DrupalConsole is installed locally for use at `vendor/bin/console`.
+* Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
+
 
 ## Updating Drupal Core
 
@@ -61,10 +62,12 @@ Updating Drupal core is a two-step process.
 
 1. Update the version number of `drupal/core` in `composer.json`.
 1. Run `composer update drupal/core`.
-1. Run `./scripts/drupal/update-scaffold` to update files in the `web` directory.
-   This will update `web` with whatever the latest Drupal 8 release is. Review
-   the files for any changes and restore any customizations to `.htaccess` or
-   `robots.txt`.
+1. Run `./scripts/drupal/update-scaffold [drush-version-spec]` to update files
+   in the `web` directory, where `drush-version-spec` is an optional identifier
+   acceptable to Drush, e.g. `drupal-8.0.x` or `drupal-8.1.x`, corresponding to
+   the version you specified in `composer.json`. (Defaults to `drupal-8`, the
+   latest stable release.) Review the files for any changes and restore any
+   customizations to `.htaccess` or `robots.txt`.
 1. Commit everything all together in a single commit, so `web` will remain in
    sync with the `core` when checking out branches or running `git bisect`.
 
@@ -80,3 +83,18 @@ that the generated `composer.json` might differ from this project's file.
 ### Should I commit the contrib modules I download
 
 Composer recommends **no**. They provide [argumentation against but also workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md).
+
+### How can I apply patches to downloaded modules?
+
+If you need to apply patches (depending on the project being modified, a pull request is often a better solution), you can do so with the [composer-patches](https://github.com/cweagans/composer-patches) plugin.
+
+To add a patch to drupal module foobar insert the patches section in the extra section of composer.json:
+```json
+"extra": {
+    "patches": {
+        "drupal/foobar": {
+            "Patch description": "URL to patch"
+        }
+    }
+}
+```
