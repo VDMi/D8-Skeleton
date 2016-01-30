@@ -19,3 +19,5 @@ composer create-project --repository-url="http://composer.development.vdmi.nl/pa
 ```
 
 ```destination``` is the target directory in which the project will be generated.
+
+After the ```composer create-project```, enter the ```destination``` directory and follow the instructions given by Composer.
