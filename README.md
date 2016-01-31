@@ -15,7 +15,7 @@ You might need to replace `composer` with `php composer.phar` (or similar) for y
 After that you can create the project:
 
 ```
-composer create-project --repository-url="https://raw.githubusercontent.com/VDMi/D8-Skeleton/8.x/packages.json" VDMi/D8-Skeleton --stability dev --no-interaction destination
+composer create-project vdmi/d8-skeleton --stability dev --no-interaction destination
 ```
 
 ```destination``` is the target directory in which the project will be generated.

@@ -1,8 +1,8 @@
 {
     "packages": {
-        "VDMi/D8-Skeleton": {
+        "vdmi/d8-skeleton": {
             "8.x-dev": {
-                "name": "VDMi/D8-Skeleton",
+                "name": "vdmi/d8-skeleton",
                 "version": "8.x-dev",
                 "source": {
                     "url": "https://github.com/VDMi/D8-Skeleton.git",
