@@ -49,6 +49,10 @@ class DrupalSkeletonInstaller {
       rename('PROJECT-README.md', 'README.md');
     }
 
+    if (file_exists('packages.json')) {
+      unlink('packages.json');
+    }
+
     DrupalSkeletonInstaller::updateDir($base_path, $replacements, $machine_name);
 
     print PHP_EOL;
