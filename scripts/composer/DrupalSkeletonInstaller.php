@@ -53,6 +53,10 @@ class DrupalSkeletonInstaller {
       unlink('packages.json');
     }
 
+    if (file_exists('LICENSE')) {
+      unlink('LICENSE');
+    }
+
     DrupalSkeletonInstaller::updateDir($base_path, $replacements, $machine_name);
 
     print PHP_EOL;
