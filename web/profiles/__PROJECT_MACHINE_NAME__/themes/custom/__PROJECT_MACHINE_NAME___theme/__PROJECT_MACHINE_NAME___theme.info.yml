@@ -1,6 +1,6 @@
-name: __PROJECT_HUMAN_NAME__ Theme
+name: '__PROJECT_HUMAN_NAME__ Theme'
 type: theme
-description: Theme for __PROJECT_HUMAN_NAME__
+description: 'Theme for __PROJECT_HUMAN_NAME__'
 package: Other
 core: 8.x
 libraries:

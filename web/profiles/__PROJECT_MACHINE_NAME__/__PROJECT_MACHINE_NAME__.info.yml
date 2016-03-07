@@ -1,10 +1,10 @@
-name: __PROJECT_HUMAN_NAME__
+name: '__PROJECT_HUMAN_NAME__'
 type: profile
 description: '__PROJECT_HUMAN_NAME__ profile.'
 core: 8.x
 
 distribution:
-  name: __PROJECT_HUMAN_NAME__
+  name: '__PROJECT_HUMAN_NAME__'
 
 # Required modules
 dependencies:
