@@ -1,5 +1,5 @@
 {
-    "name": "vdmi/d8-skeleton",
+    "name": "VDMi-Composer/D8-Skeleton",
     "description": "VDMi Project Skeleton for Drupal 8 projects with composer",
     "type": "project",
     "license": "GPL-2.0+",
@@ -18,12 +18,14 @@
     "require": {
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "~1.0",
-        "drupal/core": "8.0.3",
+        "drupal/core": "8.0.5",
         "drush/drush": "~8.0",
-        "drupal/console": "~0.10"
+        "drupal/console": "~0.10",
+        "drupal/drupal-extension": "~3.0",
+        "guzzlehttp/guzzle": "^6.0@dev"
     },
     "require-dev": {
-        "behat/mink": "~1.6",
+        "behat/mink": "~1.7",
         "behat/mink-goutte-driver": "~1.2",
         "jcalderonzumba/gastonjs": "^1.1@dev",
         "jcalderonzumba/mink-phantomjs-driver": "dev-master#10d7c48c9a4129463052321b52450d98983c4332",
